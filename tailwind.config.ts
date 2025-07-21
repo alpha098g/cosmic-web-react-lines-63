@@ -70,9 +70,9 @@ export default {
 				}
 			},
 			backgroundImage: {
-				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-accent': 'var(--gradient-accent)',
-				'gradient-background': 'var(--gradient-background)'
+				'gradient-primary': 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)))',
+				'gradient-accent': 'linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)))',
+				'gradient-background': 'linear-gradient(180deg, hsl(var(--background)), hsl(215 30% 8%))'
 			},
 			boxShadow: {
 				'glow': 'var(--shadow-glow)',
