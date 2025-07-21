@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Interactive3DBackground from "@/components/Interactive3DBackground";
+import VantaBackground from "@/components/VantaBackground";
 import AnimatedNavbar from "@/components/AnimatedNavbar";
 import Hero from "@/components/Hero";
 import NewSkills from "@/components/NewSkills";
 import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 
@@ -15,13 +16,16 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-background">
-      <Interactive3DBackground />
-      <AnimatedNavbar />
-      <Hero />
-      <NewSkills />
-      <Projects />
-      <Footer />
+    <div className="min-h-screen bg-black">
+      <VantaBackground />
+      <div className="relative z-10">
+        <AnimatedNavbar />
+        <Hero />
+        <NewSkills />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };

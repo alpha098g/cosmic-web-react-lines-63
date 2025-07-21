@@ -71,7 +71,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="bg-card/80 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-500 hover:shadow-glow group overflow-hidden animate-scale-in"
+              className="bg-card/80 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-500 hover:shadow-glow group overflow-hidden animate-scale-in hover:scale-105 hover:-translate-y-2"
               style={{
                 animationDelay: `${index * 0.2}s`
               }}
