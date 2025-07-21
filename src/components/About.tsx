@@ -1,5 +1,5 @@
 
-import { Timeline } from "@aceternity/ui/timeline";
+import { Timeline } from "@/components/ui/timeline";
 
 const About = () => {
   const timelineData = [

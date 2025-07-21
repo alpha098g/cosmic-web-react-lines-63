@@ -1,5 +1,5 @@
 
-import { PinContainer } from "@aceternity/ui/3d-pin";
+import { PinContainer } from "@/components/ui/3d-pin";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Code, Palette, Database, Globe } from "lucide-react";
 

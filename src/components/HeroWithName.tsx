@@ -1,5 +1,5 @@
 
-import { TextHoverEffect } from "@aceternity/ui/text-hover-effect";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Zap, Code, User } from "lucide-react";
