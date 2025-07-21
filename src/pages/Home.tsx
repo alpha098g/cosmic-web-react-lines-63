@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 import VantaBackground from "@/components/VantaBackground";
 import AnimatedNavbar from "@/components/AnimatedNavbar";
-import Hero from "@/components/Hero";
+import HeroWithName from "@/components/HeroWithName";
+import About from "@/components/About";
 import NewSkills from "@/components/NewSkills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
@@ -20,7 +22,8 @@ const Home = () => {
       <VantaBackground />
       <div className="relative z-10">
         <AnimatedNavbar />
-        <Hero />
+        <HeroWithName />
+        <About />
         <NewSkills />
         <Projects />
         <Contact />

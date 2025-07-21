@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
 import { toast } from "sonner";
+import { TypewriterEffect } from "@aceternity/ui/typewriter-effect";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,6 +36,30 @@ const Contact = () => {
     }));
   };
 
+  const words = [
+    {
+      text: "Let's",
+    },
+    {
+      text: "Connect",
+      className: "text-primary",
+    },
+    {
+      text: "&",
+    },
+    {
+      text: "Build",
+      className: "text-accent",
+    },
+    {
+      text: "Something",
+    },
+    {
+      text: "Amazing",
+      className: "text-primary-glow",
+    },
+  ];
+
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
@@ -43,7 +69,7 @@ const Contact = () => {
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
+      title: "Phone", 
       value: "+1 (555) 123-4567",
       href: "tel:+15551234567"
     },
@@ -64,7 +90,7 @@ const Contact = () => {
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
-      name: "LinkedIn",
+      name: "LinkedIn", 
       href: "#",
       color: "hover:text-blue-400"
     },
@@ -79,10 +105,8 @@ const Contact = () => {
   return (
     <section className="py-20 relative z-10" id="contact">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl font-display font-bold text-foreground mb-4">
-            Get In <span className="text-transparent bg-clip-text bg-gradient-primary animate-text-shimmer bg-[length:200%_100%]">Touch</span>
-          </h2>
+        <div className="text-center mb-16">
+          <TypewriterEffect words={words} className="mb-4" />
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-body">
             Ready to collaborate? Let's discuss your next project and bring your ideas to life.
           </p>
@@ -90,7 +114,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
                 Let's start a conversation
@@ -107,8 +131,7 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <Card 
                   key={index}
-                  className="bg-card/60 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow group cursor-pointer animate-scale-in"
-                  style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+                  className="bg-card/60 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow group cursor-pointer"
                 >
                   <CardContent className="p-6">
                     <a 
@@ -140,8 +163,7 @@ const Contact = () => {
                   <a
                     key={index}
                     href={social.href}
-                    className={`p-3 rounded-lg bg-card/60 border border-border ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-glow animate-scale-in`}
-                    style={{ animationDelay: `${0.6 + index * 0.1}s` }}
+                    className={`p-3 rounded-lg bg-card/60 border border-border ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-glow`}
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -152,7 +174,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-card/60 backdrop-blur-lg border-border shadow-elegant animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <Card className="bg-card/60 backdrop-blur-lg border-border shadow-elegant">
             <CardHeader>
               <CardTitle className="text-2xl font-heading font-bold text-foreground">
                 Send a Message
@@ -161,7 +183,7 @@ const Contact = () => {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="animate-fade-in" style={{ animationDelay: "0.5s" }}>
+                  <div>
                     <label className="block text-sm font-medium text-foreground mb-2 font-body">
                       Name
                     </label>
@@ -175,7 +197,7 @@ const Contact = () => {
                       className="bg-background/50 border-border focus:border-primary transition-colors"
                     />
                   </div>
-                  <div className="animate-fade-in" style={{ animationDelay: "0.6s" }}>
+                  <div>
                     <label className="block text-sm font-medium text-foreground mb-2 font-body">
                       Email
                     </label>
@@ -191,7 +213,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="animate-fade-in" style={{ animationDelay: "0.7s" }}>
+                <div>
                   <label className="block text-sm font-medium text-foreground mb-2 font-body">
                     Subject
                   </label>
@@ -206,7 +228,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <div className="animate-fade-in" style={{ animationDelay: "0.8s" }}>
+                <div>
                   <label className="block text-sm font-medium text-foreground mb-2 font-body">
                     Message
                   </label>
@@ -224,8 +246,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 font-heading font-semibold animate-scale-in"
-                  style={{ animationDelay: "0.9s" }}
+                  className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 font-heading font-semibold"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
