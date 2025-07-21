@@ -1,4 +1,4 @@
-import { useRef, useMemo, useEffect } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 
 interface NodeProps {
