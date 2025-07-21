@@ -1,7 +1,7 @@
+
 import { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
-import * as THREE from 'three';
 
 interface NodeProps {
   count: number;
@@ -50,7 +50,6 @@ const NetworkNodes = ({ count, mousePosition }: NodeProps) => {
         sizeAttenuation={true}
         depthWrite={false}
         opacity={0.8}
-        blending={THREE.AdditiveBlending}
       />
     </Points>
   );
