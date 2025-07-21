@@ -1,24 +1,21 @@
-
 import { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
 
 interface NodeProps {
   count: number;
   mousePosition: { x: number; y: number };
 }
 
-const NetworkNodes = ({ count, mousePosition }: NodeProps) => {
-  const meshRef = useRef<THREE.Points>(null);
+const AnimatedNodes = ({ count }: NodeProps) => {
+  const meshRef = useRef<any>(null);
   
-  const positions = useMemo(() => {
+  const particlesPosition = useMemo(() => {
     const positions = new Float32Array(count * 3);
     
-    // Generate random positions for nodes
     for (let i = 0; i < count; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 10;
       positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 5;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
     }
     
     return positions;
@@ -26,32 +23,29 @@ const NetworkNodes = ({ count, mousePosition }: NodeProps) => {
 
   useFrame((state) => {
     if (meshRef.current) {
-      // Rotate the entire network slowly
-      meshRef.current.rotation.x += 0.0005;
-      meshRef.current.rotation.y += 0.001;
-      
-      // React to mouse position
-      const time = state.clock.getElapsedTime();
-      meshRef.current.rotation.x += Math.sin(time * 0.1) * 0.0002;
-      meshRef.current.rotation.y += Math.cos(time * 0.1) * 0.0002;
-      
-      // Mouse influence
-      meshRef.current.rotation.x += mousePosition.y * 0.0001;
-      meshRef.current.rotation.y += mousePosition.x * 0.0001;
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.1;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.1;
     }
   });
 
   return (
-    <Points ref={meshRef} positions={positions} stride={3} frustumCulled={false}>
-      <PointMaterial
-        transparent
+    <points ref={meshRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={count}
+          array={particlesPosition}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial
         color="#8b5cf6"
-        size={0.05}
+        size={0.02}
         sizeAttenuation={true}
-        depthWrite={false}
+        transparent
         opacity={0.8}
       />
-    </Points>
+    </points>
   );
 };
 
@@ -78,7 +72,7 @@ const Interactive3DBackground = () => {
       >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
-        <NetworkNodes count={100} mousePosition={mousePosition.current} />
+        <AnimatedNodes count={100} mousePosition={mousePosition.current} />
       </Canvas>
     </div>
   );
