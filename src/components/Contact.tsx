@@ -4,9 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Home } from "lucide-react";
+import { IconBrandGithub, IconBrandX, IconBrandLinkedin, IconHome, IconMail } from "@tabler/icons-react";
 import { toast } from "sonner";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import { FloatingDock } from "@/components/ui/floating-dock";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -102,6 +104,38 @@ const Contact = () => {
     }
   ];
 
+  const FloatingDockComponent = () => {
+    const dockLinks = [
+      {
+        title: "Home",
+        icon: <IconHome className="h-full w-full" />,
+        href: "#",
+      },
+      {
+        title: "GitHub",
+        icon: <IconBrandGithub className="h-full w-full" />,
+        href: "#",
+      },
+      {
+        title: "LinkedIn",
+        icon: <IconBrandLinkedin className="h-full w-full" />,
+        href: "#",
+      },
+      {
+        title: "Twitter",
+        icon: <IconBrandX className="h-full w-full" />,
+        href: "#",
+      },
+      {
+        title: "Email",
+        icon: <IconMail className="h-full w-full" />,
+        href: "mailto:hello@example.com",
+      },
+    ];
+
+    return <FloatingDock items={dockLinks} />;
+  };
+
   return (
     <section className="py-20 relative z-10 bg-background text-foreground" id="contact">
       <div className="container mx-auto px-4">
@@ -155,21 +189,10 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
+            {/* Social Links with Floating Dock */}
             <div className="pt-8">
               <h4 className="font-heading font-semibold text-foreground mb-4">Follow me</h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className={`p-3 rounded-lg bg-card/60 border border-border ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-glow`}
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
+              <FloatingDockComponent />
             </div>
           </div>
 

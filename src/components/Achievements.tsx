@@ -35,13 +35,13 @@ const Achievements = () => {
   ];
 
   return (
-    <section className="py-20 relative z-10 bg-card/20" id="achievements">
+    <section className="py-20 relative z-10 bg-black text-white" id="achievements">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Achievements & <span className="text-transparent bg-clip-text bg-gradient-primary">Certifications</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Milestones and certifications that showcase my journey in web development
           </p>
         </div>
