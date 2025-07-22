@@ -103,7 +103,7 @@ const Contact = () => {
   ];
 
   return (
-    <section className="py-20 relative z-10" id="contact">
+    <section className="py-20 relative z-10 bg-background text-foreground" id="contact">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <TypewriterEffect words={words} className="mb-4" />

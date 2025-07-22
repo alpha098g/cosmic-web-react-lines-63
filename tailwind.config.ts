@@ -133,6 +133,10 @@ export default {
 					'0%': { backgroundPosition: '0% 50%' },
 					'50%': { backgroundPosition: '100% 50%' },
 					'100%': { backgroundPosition: '0% 50%' }
+				},
+				'scroll': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-100%)' }
 				}
 			},
 			animation: {
@@ -146,7 +150,8 @@ export default {
 				'fade-in-right': 'fade-in-right 0.6s ease-out',
 				'slide-down': 'slide-down 0.4s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
-				'text-shimmer': 'text-shimmer 3s ease-in-out infinite'
+				'text-shimmer': 'text-shimmer 3s ease-in-out infinite',
+				'scroll': 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite'
 			}
 		}
 	},

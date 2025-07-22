@@ -6,6 +6,7 @@ import HeroWithName from "@/components/HeroWithName";
 import About from "@/components/About";
 import NewSkills from "@/components/NewSkills";
 import Projects from "@/components/Projects";
+import Achievements from "@/components/Achievements";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
@@ -26,6 +27,7 @@ const Home = () => {
         <About />
         <NewSkills />
         <Projects />
+        <Achievements />
         <Contact />
         <Footer />
       </div>

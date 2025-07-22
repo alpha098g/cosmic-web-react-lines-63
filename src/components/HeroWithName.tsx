@@ -31,12 +31,12 @@ const HeroWithName = () => {
       </p>
       
       <div className="flex flex-col sm:flex-row gap-4 mb-12">
-        <Link to="/projects">
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
           <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 group">
-            View Projects
+            View Resume
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
-        </Link>
+        </a>
         <Button variant="outline" size="lg" className="border-border/50 hover:bg-card/50 backdrop-blur-sm">
           Contact Me
         </Button>
